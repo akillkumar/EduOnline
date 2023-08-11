@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^swj&4vqpy#pa4)e^62-bv(!h*6o(trmb9bu4k%wnd)olp%e8_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 CKEDITOR_CONFIGS = {
