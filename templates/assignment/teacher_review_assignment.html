@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Review Assignment{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h3>Assignment Submission</h3>
+        <p><strong>Student Name:</strong> {{ student_assignment.student.username }}</p>
+        <p><strong>Assignment Title:</strong> {{ student_assignment.assignment.title }}</p>
+        {% if student_assignment.file %}
+        
+        <a target="_blank" href="{{ student_assignment.file.url }}"  class="btn btn-success">View assignment file</a>
+        {% else %}
+        {% endif %}
+        <hr>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <label for="{{ form.grade.id_for_label }}">Degree:</label>
+                {% render_field form.grade  class='form-control'  %}
+            </div>
+            <div class="form-group mb-3">
+                <label for="{{ form.comments.id_for_label }}">Comments:</label>
+                {% render_field form.comments class='form-control' %}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
+{% endblock %}

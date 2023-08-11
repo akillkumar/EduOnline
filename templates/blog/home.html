@@ -1,0 +1,356 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+    <!-- swiper style -->
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+
+    {% endblock style %}
+{% block content %}
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="/"><img src="{% static 'img/EduOnline.png' %}" alt="" srcset=""></a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#courses">Blog</a></li>
+        <li><a href="#about">About</a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- main section -->
+<main>
+  <div class="container">
+    <div class="content">
+      <img src="{% static 'img/landing.png' %}" alt="" srcset="">
+
+      <div class="text">
+        <h1>Welcome, there</h1>
+        <p>The Education Online Community (EO) aims to evolve the Web and improve the overall skill set of
+          the web
+          industry by improving the quality of available web education resources and courses around the
+          world.
+          responsibilities of different projects inside the EO</p>
+
+        <div class="buttons">
+          <a class="btn-spe" href="{% url 'login' %}">Login</a>
+          <a class="btn-spe join" href="{% url 'signup' %}">Join Us</a>
+        </div>
+
+      </div>
+    </div>
+</main>
+<!-- start courses sections -->
+<section id="courses" class="slides-container">
+  <div class="heading">
+    <h1>Our <span>Courses</span></h1>
+  </div>
+  <div class="courses-container swiper">
+    <div class="slide-content">
+      <div class="card-wrapper swiper-wrapper">
+
+        <div class="card swiper-slide">
+          <div class="courses-content">
+            <span class="overlay"></span>
+
+            <div class="card-icon">
+              <i class="fa-brands fa-python"></i>
+            </div>
+          </div>
+
+          <div class="courses-card-content">
+            <h2 class="course-name">Python Course</h2>
+            <p class="course-description">
+              Python is a popular language used to create web applications.
+            </p>
+
+            <a href="" class="btn-spe button">View More</a>
+          </div>
+        </div>
+
+
+        <div class="card swiper-slide">
+          <div class="courses-content">
+            <span class="overlay"></span>
+
+            <div class="card-icon">
+              <i class="fa-brands fa-php"></i>
+            </div>
+          </div>
+
+          <div class="courses-card-content">
+            <h2 class="course-name">PHP Course</h2>
+            <p class="course-description"> PHP is a server scripting language and powerful tool for
+              making dynamic.
+            </p>
+            <a href="" class="btn-spe button">View More</a>
+          </div>
+        </div>
+
+
+        <div class="card swiper-slide">
+          <div class="courses-content">
+            <span class="overlay"></span>
+
+            <div class="card-icon">
+              <i class="fa-brands fa-html5"></i>
+            </div>
+          </div>
+
+          <div class="courses-card-content">
+            <h2 class="course-course-name">HTML Course</h2>
+            <p class="course-description"> HTML is the standard markup language for creating Web pages.
+            </p>
+
+            <a href="" class="btn-spe button">View More</a>
+          </div>
+        </div>
+
+
+        <div class="card swiper-slide">
+          <div class="courses-content">
+            <span class="overlay"></span>
+
+            <div class="card-icon">
+              <i class="fa-brands fa-css3"></i>
+            </div>
+          </div>
+
+          <div class="courses-card-content">
+            <h2 class="course-name">CSS Course</h2>
+            <p class="course-description"> CSS is Cascading Style Sheets language we use to style a Web
+              page.</p>
+
+            <a href="" class="btn-spe button">View More</a>
+          </div>
+        </div>
+
+        <div class="card swiper-slide">
+          <div class="courses-content">
+            <span class="overlay"></span>
+
+            <div class="card-icon">
+              <i class="fa-brands fa-java"></i>
+            </div>
+          </div>
+
+          <div class="courses-card-content">
+            <h2 class="course-name">Java Course</h2>
+            <p class="course-description">Java is used to develop mobile apps, web apps, games and much
+              more.</p>
+
+            <a href="" class="btn-spe button">View More</a>
+          </div>
+        </div>
+
+        <div class="card swiper-slide">
+          <div class="courses-content">
+            <span class="overlay"></span>
+
+            <div class="card-icon">
+              <i class="fa-brands fa-joomla"></i>
+            </div>
+          </div>
+
+          <div class="courses-card-content">
+            <h2 class="course-name">joomla Course</h2>
+            <p class="course-description">Joomla! is a content management system and create websites.
+            </p>
+
+            <a href="" class="btn-spe button">View More</a>
+          </div>
+        </div>
+
+        <div class="card swiper-slide">
+          <div class="courses-content">
+            <span class="overlay"></span>
+
+            <div class="card-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+          </div>
+
+          <div class="courses-card-content">
+            <h2 class="course-course-name">SQL Course</h2>
+            <p class="course-description"> SQL is a standard language for storing and manipulating in
+              databases.</p>
+
+            <a href="" class="btn-spe button">View More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+
+<!-- end courses sections -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-form">
+      <div class="heading">
+        <h1>Contact <span>Us</span></h1>
+      </div>
+      <form>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <input class="btn-spe" type="submit" value="Send Message">
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Start Testimonials -->
+<div class="testimonials" id="testimonials">
+  <div class="heading">
+    <h1>Testim<span>onials</span></h1>
+  </div>
+  <div class="container">
+    <div class="box">
+      <img src="{% static 'img/profiles/avatar-01.png' %}" alt="" />
+      <h3>Mohamed Farag</h3>
+      <span class="title">Full Stack Developer</span>
+      <div class="rate">
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
+        natus
+        quaerat ducimus
+      </p>
+    </div>
+    <div class="box">
+      <img src="{% static 'img/profiles/avatar-02.png' %}" alt="" />
+      <h3>Mohamed Ibrahim</h3>
+      <span class="title">Full Stack Developer</span>
+      <div class="rate">
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
+        natus
+        quaerat ducimus
+      </p>
+    </div>
+    <div class="box">
+      <img src="{% static 'img/profiles/avatar-03.png' %}" alt="" />
+      <h3>Shady Nabil</h3>
+      <span class="title">Full Stack Developer</span>
+      <div class="rate">
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
+        natus
+        quaerat ducimus
+      </p>
+    </div>
+    <div class="box">
+      <img src="{% static 'img/profiles/avatar-04.png' %}" alt="" />
+      <h3>Amr Hendawy</h3>
+      <span class="title">Full Stack Developer</span>
+      <div class="rate">
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
+        natus
+        quaerat ducimus
+      </p>
+    </div>
+    <div class="box">
+      <img src="{% static 'img/profiles/avatar-05.png' %}" alt="" />
+      <h3>Sherief Ashraf</h3>
+      <span class="title">Full Stack Developer</span>
+      <div class="rate">
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
+        natus
+        quaerat ducimus
+      </p>
+    </div>
+    <div class="box">
+      <img src="{% static 'img/profiles/avatar-06.png' %}" alt="" />
+      <h3>Osama Mohamed</h3>
+      <span class="title">Full Stack Developer</span>
+      <div class="rate">
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
+        natus
+        quaerat ducimus
+      </p>
+    </div>
+  </div>
+</div>
+<!-- End Testimonials -->
+<footer>
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3 id="about">About Us</h3>
+        <p>The Education Online Community (EO) aims to evolve the Web and improve the overall skill set of
+          the web industry by improving the quality of available web education resources and courses
+          around the world. responsibilities of different projects inside the EO</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 <span>EduOnline</span>. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Swiper JS -->
+<script src="{% static 'js/landing/swiper-bundle.min.js' %}"></script>
+
+<!-- JavaScript -->
+<script src="{% static 'js/landing/landing.js' %}"></script>
+{% endblock content %}

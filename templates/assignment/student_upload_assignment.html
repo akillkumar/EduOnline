@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block pageTitle %} upload assignment {% endblock pageTitle %}
+{% block currentPage %} add-course {% endblock currentPage %}
+
+{% block content %}
+    <div class="container mt-5">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <label for="{{ form.file.id_for_label }}">Upload Assignment File:</label>
+                {% render_field  form.file class="form-control" %}
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Assignment</button>
+        </form>
+    </div>
+{% endblock %}

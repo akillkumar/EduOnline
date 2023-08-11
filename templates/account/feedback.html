@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+
+<style>
+  .rate{
+    justify-content: space-evenly;
+    width: 50%;
+  }
+</style>
+<div class="card ">
+  <div class="card-body pt-20px d-flex justify-content-space-evenly w-100 align-items-center">
+    <br>
+    <img src="{{ profile.picture.url }}" width="100px" class="rounded-circle" alt="">
+    <p class="mb-0 ms-5 align-right w-80">
+      <strong>Hello</strong>, {{request.user.first_name|capfirst}} {{request.user.last_name|capfirst}}
+      <br>
+      <span class="text-success">leave your feedback</span>
+    </p>
+  </div>
+</div>
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group mb-3">
+    {% render_field feedback.course class='form-control' %}
+  </div>
+
+  <div class="form-group mb-3 d-flex justify-content-center w-100">
+    <div class="d-flex rate">
+      <span>1 <i class="fas fa-star"></i></span>
+      <input style="width: 20px; height:20px;" type="radio" name="course_rate" id="star_1" value="*">
+      <input style="width: 20px; height:20px;" type="radio" name="course_rate" id="star_1" value="**">
+      <input style="width: 20px; height:20px;" type="radio" name="course_rate" id="star_1" value="***">
+      <input style="width: 20px; height:20px;" type="radio" name="course_rate" id="star_1" value="****">
+      <input style="width: 20px; height:20px;" type="radio" name="course_rate" id="star_1" value="*****">
+    
+      <span>5 <i class="fas fa-star"></i></span>
+    </div>
+  </div>
+  <div class="form-group mb-3">
+    <label for="{{ feedback.content.id_for_label }}">Feedback</label>
+    {% render_field feedback.content class='form-control' %}
+
+  </div>
+  <div class="justify-content-center w-100 d-flex">
+
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+  </div>
+</form>
+{% endblock %}

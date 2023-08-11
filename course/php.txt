@@ -1,0 +1,30 @@
+Introduction:Qk3qmUNUQiw
+Installation #php:UoQTTn4dLvY
+Variables:RIFWOX6uphE
+Data Types:vsLXwpEctf8
+Constants:AajSUUKyq6k
+Operators:e4JAx3oe6BY
+if...else...elseif:wxfIWj1Ua0w
+while Loop:4DPVGH7knjY
+do while Loop:5DZ2u2xvnF8
+for Loop:KUXcoas-QCM
+foreach Loop:iHt32aKV-v8
+Indexed Arrays:gt7O5z_uSt0
+Associative Arrays:cV5I2IxvxeE
+Multidimensional Arrays:7t5ugMNB2ys
+Form Login Part 1:Ec7rriGv6Ck
+Connect to MySQL:wIhhM38225g
+MySQL Create Table & Insert:BN6UPOwyXB4
+MySQL Select Data:pF9b783_Vq4
+MySQL Update Data:WXGBQCWxtkU
+MySQL Delete Data:Gfvs49fqn3I
+Sessions:3bE4j9xVrK4
+File Upload:umoudLM_KMQ
+Show File Upload:hhm7Jb7RLNs
+Update File Upload:m1yWbx6qJ8A
+Delete File Upload:efiiZr0HH4o
+Form Validation:EKjx-OHWHtk
+Date and Time:pxTugbbB8RU
+Cookies:mzJg8FrWhD0
+Filter Part 1:NCUuFqlGb7A
+Filter Part 2:07zfOJ8li6k

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block pageTitle %} Add Article {% endblock pageTitle %}
+{% block currentPage %} add-article {% endblock currentPage %}
+
+
+{% block content %}
+
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<section>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                {% if field.name == 'author' %}
+                    <input type="hidden" name="{{ field.name }}" value="{{ request.user.id }}">
+                {% elif field.name == 'content' %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label_tag }}</label>
+                        <textarea name="{{ field.name }}" id="id_{{ field.name }}" class="form-control" placeholder="" autocomplete="off">{{ field.value|default:'' }}</textarea>
+                        {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% if field.errors %}
+                            <ul class="list-unstyled mt-2">
+                                {% for error in field.errors %}
+                                    <li class="text-danger">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <script type="text/javascript">
+                        CKEDITOR.replace('id_{{ field.name }}');
+                    </script>
+                {% else %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label_tag }}</label>
+                        {{ field|attr:"class:form-control"|attr:"placeholder:"|attr:"autocomplete:off" }}
+                        {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% if field.errors %}
+                            <ul class="list-unstyled mt-2">
+                                {% for error in field.errors %}
+                                    <li class="text-danger">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block pageTitle %}Edit personal information{% endblock pageTitle %}
+{% block currentPage %}personal information{% endblock currentPage %}
+
+{% block content %}
+<div class="container mt-4">
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+      {{ form.username|attr:"class:form-control"|attr:"placeholder:Enter your username"|attr:"autocomplete:off" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+      {{ form.email|attr:"class:form-control"|attr:"placeholder:Enter your email address"|attr:"autocomplete:off" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="{{ form.first_name.id_for_label }}" class="form-label">First Name</label>
+      {{ form.first_name|attr:"class:form-control"|attr:"placeholder:Enter your first name"|attr:"autocomplete:off" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="{{ form.last_name.id_for_label }}" class="form-label">Last Name</label>
+      {{ form.last_name|attr:"class:form-control"|attr:"placeholder:Enter your last name"|attr:"autocomplete:off" }}
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+  </form>
+</div>
+{% endblock %}

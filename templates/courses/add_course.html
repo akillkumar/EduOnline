@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block pageTitle %} Add Course {% endblock pageTitle %}
+{% block currentPage %} add-course {% endblock currentPage %}
+
+{% block content %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label_tag }}</label>
+                        
+                        {% render_field  field  class="form-control" %}
+
+                    </div>
+                {% endfor %}
+                <input type="submit" value="Add Course" class="btn btn-primary">
+            </form>
+{% endblock %}

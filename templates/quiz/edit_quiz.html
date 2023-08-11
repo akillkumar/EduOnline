@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageTitle %}Edit quiz{% endblock pageTitle %}
+{% block currentPage %}edit-quiz{% endblock currentPage %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Edit Quiz</h2>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Update Quiz</button>
+  </form>
+  <a href="{% url 'quiz_list' %}" class="btn btn-secondary mt-2">Cancel</a>
+</div>
+{% endblock content %}

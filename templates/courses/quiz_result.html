@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+{% include 'include/header.html' %}
+{% include 'include/sidebar.html' %}
+
+<main class="main" id="main">
+  <div class="container">
+    <h1>Quiz Result - {{ quiz.title }}</h1>
+    <p>Your Score: {{ score }} / {{ quiz.question_set.count }}</p>
+    <p>Percentage Score: {{ percentage_score }}%</p>
+    <!-- You can add more information or options here, like a "Try Again" button or a link to other quizzes -->
+</div>
+</main>
+
+{% include 'include/footer.html' %}
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block pageTitle %}Student Result{% endblock pageTitle %}
+{% block currentPage %}results{% endblock currentPage %}
+
+{% block content %}
+{% for student in students %}
+    {% if not student.is_staff%}
+    <table class="table table-bordered  border-success table-hover">
+      <thead>
+        <tr>
+          <th>student Name</th>
+          <th>View result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{student.first_name|capfirst}} {{student.last_name|capfirst}}</td>
+          <td><a href="{% url 'result' student.username %}" class="btn btn-success w-100">Result</a></td>
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+{% endfor %}
+{% endblock content %}

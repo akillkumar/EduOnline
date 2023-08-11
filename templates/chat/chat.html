@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block pageTitle %} Chat {% endblock pageTitle %}
+{% block currentPage %} Chat with {{ receiver.username }} {% endblock currentPage %}
+
+{% block content %}
+<div class="mb-3">
+    {% for message in messages %}
+    <p class="mb-2 {% if message.sender == request.user %}text-end{% else %}text-start{% endif %}">
+        <strong>{{ message.sender.username }}:</strong> {{ message.content }}
+    </p>
+    {% endfor %}
+</div>
+<form method="post" action="{% url 'send-message' receiver.id %}" class="d-flex">
+    {% csrf_token %}
+    <input type="text" name="content" required class="form-control me-2">
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+{% endblock content %}

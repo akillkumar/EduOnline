@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block pageTitle %} Courses List {% endblock pageTitle %}
+{% block currentPage %} Courses management {% endblock currentPage %}
+
+{% block content %}
+<table class="table table-bordered table-striped table-hover">
+    <thead class="thead-light" align="center">
+        <tr>
+            <th>ID</th>
+            <th>Course name</th>
+            <th>field</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody align="center">
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.id }}</td>
+            <td>{{ course.course_name }}</td>
+            <td>{{ course.field }}</td>
+            <td>
+                        <a href="{% url 'edit-course' course.id %}" class="btn btn-warning"><i
+                            class="bi bi-pencil-square"></i></a>
+
+                            <form method="post" class="btn">
+                                {% csrf_token %}
+                                <input type="hidden" name="assignment_id" value="{{ course.id }}">
+                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                            </form>
+                        <a href="{% url 'upload-video' course.id %}" class="btn btn-success">Add video</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

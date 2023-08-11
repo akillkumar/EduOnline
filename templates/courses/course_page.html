@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+
+{% block pageTitle %}{{course.course_name|title}} - course{% endblock pageTitle %}
+{% block currentPage %}my-courses  /  {{course.course_name}}{% endblock currentPage %}
+{% block content %}
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="w-100 border border-success overflow-hidden rounded">
+
+          <img src="{{course.image.url}}" class="w-100" alt="">
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="row">
+          <h1 class="card-title">{{ course.course_name|title }} - course</h1>
+          <a href="{% url 'watchCourse' courseName=course.course_name videoId=videos %}" class="btn btn-primary">Watch course</a>   
+        </div>
+        <p class="mt-3">{{course.description}}</p>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock content %}

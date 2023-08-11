@@ -1,0 +1,36 @@
+{% extends 'blog/blog-base.html' %}
+{% load static %}
+
+{% block title %} - Library {% endblock title %}
+
+{% block content %}
+
+<style>
+  .course_image img {
+      height: 200px;
+      align-items: center;
+  }
+
+  .card-img-top {
+      object-fit: cover;
+      height: 100%; 
+  }
+</style>
+<section class="container">
+    <div class="courses_container">
+        {% for book in books %}
+        <article class="course">
+
+            <div class="course_image">
+                <img src="{{ book.image.url }}" alt="{{ course.course_name }}">
+            </div>
+            <div class="course_info">
+                <h4>{{ book.name }}</h4>
+                <p>{{ book.description|truncatewords:10 }}</p>
+                <a href="{% url 'book' book.id %}" class="btn btn-primary">Learn More</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block pageTitle %} Add Assignment {% endblock pageTitle %}
+{% block currentPage %} add-assignment {% endblock currentPage %}
+
+{% block content %}
+  <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+          <label for="{{ form.title.id_for_label }}">Title:</label>
+          {{ form.title|add_class:'form-control' }}  <!-- Add 'form-control' class for Bootstrap styling -->
+      </div>
+      <div class="form-group mt-3">
+          <label for="{{ form.description.id_for_label }}">Description:</label>
+          {{ form.description|attr:"rows:4"|add_class:'form-control' }}  <!-- Set textarea rows and add 'form-control' class -->
+      </div>
+      <div class="mt-5">
+        <button type="submit" class="btn btn-success">Save Assignment</button>
+      </div>
+  </form>
+
+{% endblock content %}

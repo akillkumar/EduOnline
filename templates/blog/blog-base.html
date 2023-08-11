@@ -1,0 +1,68 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/EduOnline.png' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <link href="{% static 'boxicons/css/boxicons.min.css' %}" rel="stylesheet" />
+    {% block style %}
+    {% endblock style %}
+    <link rel="stylesheet" href="{% static 'css\swiper-bundle.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'landing/css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'landing/css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    
+    <title>Edu-online</title>
+
+</head>
+
+<body>
+    <div class="overley"></div>
+{% include 'blog/blog-header.html' %}
+
+{% block content %}
+{% endblock content %}
+{% include 'blog/blog-footer.html' %}
+
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'js\swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'landing/js/main.js' %}"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoplay: {
+                delay: 5500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            // when window width is >= 800px
+            breakpoints: {
+                800: {
+                    slidesPerView: 2,
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

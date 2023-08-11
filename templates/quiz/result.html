@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block pageTitle %}student result{% endblock pageTitle %}
+{% block currentPage %}student-result{% endblock currentPage %}
+
+{% block content %}
+<table class="table table-bordered border-success">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Quiz name</th>
+      <th>Selected question</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for result in results %}
+    <tr>
+      <td>{{result.question}}</td>
+      <td>{{result.question.quiz}}</td>
+      {% if result.selected_option.is_correct %}
+      <td class="table-success">{{result.selected_option}}</td>
+      {% else %}
+      <td class="table-danger">{{result.selected_option}}</td>
+      {% endif %}
+  </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block pageTitle %}Students Assignment{% endblock pageTitle %}
+{% block currentPage %}review-Assignment{% endblock currentPage %}
+
+
+{% block content %}
+<table class="table table-bordered table-hover text-center">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Student</th>
+      <th>Assignment</th>
+      <th>Send date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for assignment in assignments %}
+    <tr>
+      <td>{{assignment.id}}</td>
+      <td>{{assignment.student|capfirst}}</td>
+      <td>{{assignment.assignment}}</td>
+      <td>{{assignment.submission_date}}</td>
+      <td><a href="{% url 'review-assignment' assignment.id %}" class="btn btn-success w-100">Review</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

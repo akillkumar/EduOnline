@@ -1,0 +1,50 @@
+Basics:Qk3qmUNUQiw
+download and install visual studio 2019:9BFphbDrDcY
+whats programming???:TmpdRnYv98w
+basic structure for c# project and Core or Framework:s5aYHTmYeTs
+different between Core or Framework:Kk1Vl2xhX_Q
+namespace and output to console by write line:RxG2rAg0QuA
+Variables part 1:yUlr5lAFpvU
+Variables part 2:wpA4q4NZS64
+Variables part 3:8SpMY0pEjyg
+constant , comment and Identifiers Rules:tPnyhDQk6bs
+readline , parse and convert:wI--BsnNiFM
+Arithmetic operators and Math:wlQ91fxH--k
+Type Casting and unicode:h5kCkXHH3TI
+Assignment Operators:DRUVApuHMOI
+prefix and postfix:C6r7ewEXViY
+concatenate string and data .net:RLt1lNjpeRM
+comparison and Logic Operator:WV4R4O_d5Cg
+if and else syntax:1Rty1iYQcdo
+Exercises for if and else syntax:KEu26Dn0lno
+Very Important Exercises for if and else:4RQokuhWqYU
+if and else if || logic operator:6l420FwKAJE
+Exercises for if and else if:PF1wFgPLIJo
+Nested If:hbfjcLHyDus
+Switch Syntax:aL0t1LG-KU8
+Exercises for switch:nFK8X7FrftE
+Loop By While Part1:eS5uXM1h98Q
+Loop By While Part 2 and Exercises for while and Unicode:6TmVEZ1en2w
+Loop By do-while and Differences between while and do-while:x5SHq-04c14
+A simple sales system with C# Basics and do_while:KkXceZubSyY
+Loop By For and Break:F2zJzf39pOM
+Nested For and Continue and break:ooF61MVOzss
+Shape By For Loop Part 1:dFwefoLSqTw
+Shape By For Loop Part 2:KPzVRMZ7lQQ
+Shape By For Loop Part 3 and Random Number:TsYI8PQQcwQ
+DateTime:1IqGd4i-QyY
+Method Part 1:v6J_ntwfqBc
+Method Part 2:MrFRe365lVE
+Method Part 3:tbaO-SA4tq0
+Method Part 4:kVukYcmm8JI
+Method Part 5:b4ExWOnex9Q
+Method Part 6:tB_O1ZS37D0
+Array Part 1:yK0wetEXcc4
+Array Part 2:PTiOFJjY0ZE
+Array Part 3:Fi2j1DKy6xk
+Array Part 4:f_stJy_SO30
+Array Part 5:WgTky937q7E
+Array Part 6:MFlZT7db_EE
+Array Part 7:ZuXG5vfAMpA
+Array Part 8:GGuy4A_8i9k
+Array Part 9:mBZ92kB5pzI

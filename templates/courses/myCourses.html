@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageTitle %}My Courses{% endblock pageTitle %}
+{% block currentPage %}my courses{% endblock currentPage %}
+
+{% block content %}
+
+  <style>
+    .card img{
+      height: 200px;
+    }
+  </style>
+  <section class="section">
+
+    {% if not myCourses %}
+      <p>You don't subscribe any course yet</p>
+    {% endif %}
+      <div class="row">
+        {% for enrollment in myCourses %}
+        <div class="col-4">
+            <div class="card">
+              <img class="card-img-top" src="{{enrollment.course.image.url}}" alt="">
+              <div class="card-body">
+                <h5 class="card-title w-100">{{ enrollment.course.course_name }}</h5>
+                  <p style="max-height: 30px; min-height:30px;" class="card-text h-10">{{ enrollment.course.description|truncatewords:8 }}</p>
+                  <a class="btn btn-success w-100 mt-3" href="{% url 'course_page' course_name=enrollment.course %}">
+                    Watch Now
+                  </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+  </section>
+
+
+{% endblock content %}

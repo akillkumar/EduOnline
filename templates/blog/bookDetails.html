@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} - Library {% endblock title %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <div class="card w-100">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="{{ book.image.url }}" class="card-img" alt="{{ book.name }}">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title">{{ book.name }}</h1>
+            <p class="card-text">{{ book.description }}</p>
+            <span>{{ book.date }}</span>
+            <a target="_blank" class="btn btn-success w-100 mt-3" href="{{ book.link }}">Read Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}

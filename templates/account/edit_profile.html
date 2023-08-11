@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block pageTitle %}Profile{% endblock pageTitle %}
+{% block currentPage %}edit Profile{% endblock currentPage %}
+{% block content %}
+<div class="container">
+  
+  <form method="post" enctype="multipart/form-data" class="mt-4">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="{{ form.picture.id_for_label }}">Profile Picture:</label>
+      {{ form.picture|attr:"class:form-control" }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.address.id_for_label }}">Address:</label>
+      {{ form.address|attr:"class:form-control" }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.mobile.id_for_label }}">Mobile:</label>
+      {{ form.mobile|attr:"class:form-control" }}
+    </div>
+    <div class="mt-5">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+  </form>
+</div>
+{% endblock content %}

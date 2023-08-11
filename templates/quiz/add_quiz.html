@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block pageTitle %}Add quiz{% endblock pageTitle %}
+{% block currentPage %}Add-quiz{% endblock currentPage %}
+
+{% block content %}
+<div class="container mt-4">
+  <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="{{ form.id_for_label }}" class="form-label">Quiz for course?</label>
+        
+        {% render_field  form.course  class="form-control" %}
+
+    </div>
+      <div class="mb-3">
+        <label for="{{ form.id_for_label }}" class="form-label">Enter Quiz Name</label>
+        {% render_field  form.quiz_name  class="form-control" %}
+      </div>
+      
+      <button type="submit" class="btn btn-success">Add Quiz</button>
+  </form>
+</div>
+{% endblock content %}

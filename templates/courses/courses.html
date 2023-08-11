@@ -1,0 +1,45 @@
+{% extends 'blog/blog-base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<style>
+  .course_image img {
+    height: 200px;
+  }
+
+</style>
+{% for category, courses in courses_by_category.items %}
+<section class="container">
+  <h2>{{ category }}</h2>
+    <div class="courses_container">
+        {% for course in courses %}
+        <article class="course">
+
+            <div class="course_image">
+                <img src="{{ course.image.url }}" alt="{{ course.course_name }}">
+            </div>
+          
+            <div class="course_info">
+                <h4>{{ course.course_name }}</h4>
+                <span>Course rate</span><br>
+                {% for feedback in feedbacks %}
+                {% if course.id == feedback.course.id %}
+                  {% for counter in feedback.course_rate %}
+                    <i class="fas fa-star"></i>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+                <p>{{ course.description|truncatewords:5 }}</p>
+                <a href="{% url 'courseDetails' course.course_name %}" class="btn btn-primary">Learn More</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
+
+
+
+{% endblock content %}

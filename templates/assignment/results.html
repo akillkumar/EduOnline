@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block pageTitle %}My Assignments{% endblock pageTitle %}
+{% block currentPage %}Assignment-result{% endblock currentPage %}
+
+
+{% block content %}
+  <table class="table table-bordered border-primary">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Assignment</th>
+        <th>Degrees</th>
+        <th>Comment</th>
+        <th>Teacher</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if result %}
+      {% for data in result %}
+      <tr>
+        <td>{{request.user.first_name|capfirst}} {{request.user.last_name|title}}</td>
+        <td>{{data.student_assignment}}</td>
+        <td>{{data.grade}}</td>
+        <td>{{data.comments}}</td>
+        <td>{{data.teacher|title}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+    {% else %}
+    <p>Results will be upload soon...</p>
+    {% endif %}
+  </table>
+
+{% endblock content %}

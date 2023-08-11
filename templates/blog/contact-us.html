@@ -1,0 +1,29 @@
+{% extends 'blog/blog-base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<section class="contact">
+    <div class="container contact_container">
+        <aside class="contact_aside">
+            <div class="aside_image">
+                <img src="{% static 'landing/images/contact.svg' %}" alt="contact-img">
+            </div>
+            <h2>Contact Us</h2>
+            <p>For any enquiries you can call our administration or leave a message.</p>
+        </aside>
+
+        <form class="contact_form" method="POST">
+            {% csrf_token %}
+            <div class="form_name">
+                {{ form.firstName|attr:"class:form-control"|attr:"placeholder:First Name"|attr:"required:true" }}
+                {{ form.lastName|attr:"class:form-control"|attr:"placeholder:Last Name"|attr:"required:true" }}
+            </div>
+            {{ form.email|attr:"class:form-control"|attr:"placeholder:example@gmail.com"|attr:"required:true" }}
+            {{ form.message|attr:"class:form-control"|attr:"placeholder:Write your message here..."|attr:"rows:4"|attr:"required:true" }}
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p><strong>{{ message }}</strong></p>
+        </form>
+    </div>
+</section>
+{% endblock content %}

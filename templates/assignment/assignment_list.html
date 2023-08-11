@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block pageTitle %} Assignments List {% endblock pageTitle %}
+{% block currentPage %} assignments {% endblock currentPage %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Assignment List</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for assignment in assignments %}
+            <tr>
+                <td>{{ assignment.title }}</td>
+                <td>{{ assignment.description }}</td>
+                <td>{{ assignment.date }}</td>
+                <td>
+                    {% if request.user.is_authenticated %}
+                    {% if student %}
+                    <a href="{% url 'upload-assignment' assignment.id %}" class="btn btn-primary">Upload</a>
+                    {% elif request.user.is_staff %}
+                    <a href="{% url 'edit-assignment' assignment.id %}" class="btn btn-warning w-100">Edit</a>
+                    <a href="{% url 'delete-assignment' assignment.id %}" class="btn btn-danger w-100 mt-3">Delete</a>
+                    {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

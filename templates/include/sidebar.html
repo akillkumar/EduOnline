@@ -1,0 +1,189 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+    {% if request.user.is_superuser %}
+    <li class="nav-item">
+      <a class="nav-link" href="/admin">
+        <i class='bx bxs-dashboard'></i>
+        <span>Admin panel</span>
+      </a>
+    </li>
+    {% endif %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'profile' request.user %}">
+        <i class="bi bi-person"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'assignment' %}">
+        <i class="bi bi-cloud-plus"></i>
+        <span>Assignments</span>
+      </a>
+    </li>
+    <!-- End Assignments Page Nav -->
+    {% if student %}
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'assignment_result' request.user %}">
+        <i class="bi bi-cloud-plus"></i>
+        <span>Assignments result</span>
+      </a>
+    </li>
+    <!-- End Assignments Page Nav -->
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'myCourses' %}">
+        <i class="bi bi-person-video2"></i>
+        <span>My Courses</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'courses' %}">
+        <i class="fa-solid fa-list-check"></i>
+        <span>Available Courses</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'available_quizzes' %}">
+        <i class="fa-solid fa-paperclip"></i>
+        <span>Quizzes</span>
+      </a>
+    </li>
+    <!-- End Assignments Page Nav -->
+
+
+    {% elif teacher or request.user.is_staff %}
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'add-assignment' %}">
+        <i class="fa-solid fa-paperclip"></i>
+        <span>Add Assignments</span>
+      </a>
+    </li>
+    <!-- End Assignments Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'review_assignment' %}">
+        <i class="bi bi-envelope-paper-fill"></i>
+        <span>Review Assignments</span>
+      </a>
+    </li>
+    <!-- End Assignments Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'add-course' %}">
+        <i class="fa-solid fa-list-check"></i>
+        <span>Add Course</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'course-manage' %}">
+        <i class="bi bi-sliders"></i>
+        <span>Course management</span>
+      </a>
+    </li>
+
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'add_quiz' %}">
+        <i class="bi bi-clipboard2-plus-fill"></i>
+        <span>Add Quizzes</span>
+      </a>
+    </li>
+    <!-- End Assignments Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'add_questions' %}">
+        <i class="bi bi-question-circle"></i>
+        <span>Add Questions</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'add_options' %}">
+        <i class="bi bi-list-check"></i>
+        <span>Add Options</span>
+      </a>
+    </li>
+
+    <!-- Results Page -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'results_page'  %}">
+        <i class="fas fa-sort-numeric-up"></i>
+        <span>Student result</span>
+      </a>
+    </li>
+    <!-- End Results Page -->
+
+
+    {% else %}
+    <!-- Results Page -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#">
+        <i class="fas fa-sort-numeric-up"></i>
+        <span>Students Result</span>
+      </a>
+    </li>
+    <!-- End Results Page -->
+
+    {% endif %}
+
+    <!-- Add Article Page -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'addArticle' %}">
+        <i class="bi bi-file-earmark-plus-fill"></i>
+        <span>Add Article</span>
+      </a>
+    </li>
+    <!-- End Article Page -->
+
+
+    <!-- Blog Page -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'blog' %}">
+        <i class="fa-solid fa-blog"></i>
+        <span>Blog</span>
+      </a>
+    </li>
+    <!-- End Blog Page -->
+
+    <!-- Library Page -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'library' %}">
+        <i class="fa-solid fa-book"></i>
+        <span>Library</span>
+      </a>
+    </li>
+    <!-- End Library Page -->
+
+    <br>
+    <hr>
+    <li class="nav-item">
+      <a class="nav-link collapsed text-success" href="{% url 'inbox' %}">
+        <i class="bi bi-inbox"></i>
+        <span>Inbox</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'feedback' request.user %}">
+        <i class="bi bi-pencil-fill"></i>
+        <span>Feedback</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed text-danger" href="{% url 'logout' %}">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Logout</span>
+      </a>
+    </li>
+  </ul>
+
+</aside>
+<!-- End Sidebar-->

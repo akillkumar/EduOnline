@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageTitle %} Course Details {% endblock pageTitle %}
+{% block currentPage %} course-details {% endblock currentPage %}
+
+{% block content %}
+  <section class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <img src="{{ course.image.url }}" alt="{{ course.course_name }}" class="img-fluid">
+      </div>
+      <div class="col-lg-4">
+        <h1>{{ course.title }}</h1>
+        <p>Field: {{ course.field }}</p>
+
+        
+        <a href="{% url 'enroll' course_name=course.course_name %}" class="btn btn-primary">Subscribe now</a>
+  </section>
+
+{% endblock %}

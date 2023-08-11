@@ -1,0 +1,42 @@
+Install Netbeans And Jdk:Xj6jEzyTXBE
+First Program And Netbeans Details:7Ot3TPcs9Ow
+Java Output by System and JOptionPane:9XtW6diO3tQ
+Java Variables Part 1:mg2c4jxdKtU
+Java Variables Part 2:fJqp7mBpQiE
+mathematical calculations:3T-cY0d0gAQ
+Java Input by Scanner:NekzosWgh7g
+Java Input by JOptionPane:IMeFEe1VYHk
+Very Important Revision ch 1:JxlVxZslSoA
+Compare Operator:Ok75WPXOTjw
+Introduction to If And else:dYHHEIRoi-U
+if and else if:1xrmUeX2Byc
+Different between if and else if:JxiZnKmjuE8
+Nested If:6Fk-oXp9bts
+logic Operator:mao0Edhwy1Y
+Switch:9GNewJOSN8w
+Loop and while and do while Part 1:8-5bmtB6aho
+Loop and while and do while Part 2:FVr5q7STclo
+Loop and for loop:nf2iVxkCXb4
+Nested For:vZ4x56HmuvY
+Nested For and Shapes Part 1:eIxingdC58c
+Nested For and Shapes Part 2, Continue and Break:71GM2NbXLLo
+Introduction To Method:MEa42JedRGY
+Void Method:WruS6urxg50
+Return Data Type Method and Parameter:aSz9zmaxf3A
+Method, Loop and Condition Program Part 1:_Wr6Qg7ET8w
+Method, Loop and Condition Program Part 2:ycaOqHbuF7w
+Method, Loop and Condition Program Part 3:S1i6raS6woE
+Recursive Method:b_Ig4jRS0fQ
+Dynamic Method:Z2NuvT-X-oM
+Introduction to Array and One Dimensions Array:rgrFl9jnwJg
+Array and loop for calculator Sum and Average:5-CxJYXU5tM
+Array and foreach:VoBXQp4lJlU
+Sorted Array and max, min number:5J8VjFMqlyo
+Array and Method:ltx4xzmlOM4
+Two Dimensions Array:pxKd7xjtHvg
+Two Dimensions Array and Method:FbWGV6oojz8
+Finish Two Dimensions Array:IDq9hBLjLwc
+Introduction to String:jfnwGuV7Ss4
+Strings and its Functions Part 1:Wf1aQrS_JZc
+Strings and its Functions Part 2:Bxg2w9U4rJs
+Finish String and Level 2:T0MD1VLPF7Y
