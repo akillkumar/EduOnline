@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/16aea2cf-efab-4d95-8f62-a6291e894ef3/resourceGroups/edu-online-academy/providers/Microsoft.Web/sites/Edu-Online-academy",
+  "appService.deploySubpath": "."
+}

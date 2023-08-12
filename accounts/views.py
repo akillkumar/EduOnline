@@ -7,6 +7,17 @@ from .forms import *
 from django.contrib.auth.models import User, Group
 from .models import Profile
 
+
+
+def error_404(request, exception):
+    
+    # we add the path to the 404.html file
+    # here. The name of our HTML file is 404.html
+    return render(request, '404.html')
+
+
+
+
 def registration_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -157,6 +168,7 @@ def feedback(request, user):
         'teacher':is_teacher(request.user),
     }
     return render(request, 'account/feedback.html', context)
+
 
 
 

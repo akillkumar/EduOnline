@@ -3,6 +3,7 @@ Django==4.2.3
 django-ckeditor==6.7.0
 django-js-asset==2.1.0
 django-quill==0.1.0
+django-suit @ https://github.com/darklow/django-suit/tarball/v2#sha256=b40c916de9528ca86bcccd42d1fd54e7773e5071d2bfd9efc576039c1a441c0b
 django-widget-tweaks==1.4.12
 Pillow==10.0.0
 sqlparse==0.4.4

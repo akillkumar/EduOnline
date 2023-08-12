@@ -30,7 +30,7 @@ class Article(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = RichTextField()
     date = models.DateTimeField(default=timezone.now)
-    image = models.ImageField(upload_to='blog/thumbnails/', blank=True, null=True)
+    image = models.ImageField(upload_to='blog/thumbnails/')
 
 
 class ContactUs(models.Model):
