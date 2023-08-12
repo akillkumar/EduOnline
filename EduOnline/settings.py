@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-^swj&4vqpy#pa4)e^62-bv(!h*6o(trmb9bu4k%wnd)olp%e8_
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['edu-online.vercel.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 
 CKEDITOR_CONFIGS = {
