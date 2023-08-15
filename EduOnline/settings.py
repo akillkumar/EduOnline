@@ -82,7 +82,12 @@ MIDDLEWARE = [
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 ROOT_URLCONF = 'EduOnline.urls'
 
 TEMPLATES = [
