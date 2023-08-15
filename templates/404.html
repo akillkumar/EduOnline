@@ -1,11 +1,10 @@
 {% extends 'blog/blog-base.html' %}
 {% load static %}
 {% block content %}
+
 <header class="jumbotron text-center">
-  <div class="container">
     <h1 class="display-4">Oops!</h1>
     <p class="lead"> <span class="text-warning">Page Not Found</p>
-      <a href="{% url 'home' %}" class="btn btn-outline-primary">Back to home page</a>
-  </div>
+      <a href="{% url 'home' %}" class="btn btn-outline-light">Back to home page</a>
 </header>
 {% endblock content %}
