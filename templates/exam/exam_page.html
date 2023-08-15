@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block pageTitle %}Exam{% endblock pageTitle %}
+{% block currentPage %}Exam / {{exam.exam_name }}{% endblock currentPage %}
+
+
+{% block content %}
+  <h1 class="card-title"  align="right">{{ exam.exam_name }}</h1>
+  <form method="POST" action="{% url 'calculate_results' exam.id %}">
+    {% csrf_token %}
+    <ol type="1">
+      {% for question in questions %}
+      <li>
+        <div class="mb-5" >
+          <p>{{ question.question }}</p>
+          <textarea name="question_{{ question.id }}" class="form-control" placeholder="Enter your answer here"></textarea>
+        </div>
+      </li>
+        {% endfor %}
+      </ol>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+{% endblock %}

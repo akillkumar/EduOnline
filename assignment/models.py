@@ -29,3 +29,35 @@ class TeacherReview(models.Model):
     teacher = models.ForeignKey(User, on_delete=models.CASCADE)
     grade = models.PositiveIntegerField()
     comments = models.TextField()
+
+
+
+class Exam(models.Model):
+    exam_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.exam_name
+
+class ExamQuestion(models.Model):
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
+    question = models.TextField(max_length=100)
+
+    def __str__(self):
+        return f"{self.id} - {self.question}"
+
+class QuestionAnswer(models.Model):
+    question = models.ForeignKey(ExamQuestion, on_delete=models.CASCADE)
+    answer = models.TextField() 
+
+    def __str__(self):
+        return f"{self.question.id} - {self.answer} "
+
+class ExamResult(models.Model):
+    student = models.ForeignKey(User, on_delete=models.CASCADE)
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE, related_name='student_exam')
+    degrees = models.PositiveIntegerField()
+    date = models.DateField(auto_now_add=True)
+
+
+    def __str__(self):
+        return f"{self.student} - {self.degrees}"

@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Assignment, StudentAssignment, TeacherReview
+from .models import *
 from .forms import AssignmentForm, StudentAssignmentForm, TeacherReviewForm
 from accounts.views import is_student, is_teacher
 
@@ -130,3 +133,67 @@ def delete_assignment(request, assignment_id):
         assignment.delete()
         assignment.save()
     return redirect('assignment')
+
+
+
+
+@login_required
+def exam_list(request):
+    exams = Exam.objects.all()
+    context = {
+        'student':is_student(request.user),
+        'teacher':is_teacher(request.user),
+        'exams': exams,
+    }
+    return render(request, 'exam/exam_list.html', context)
+
+@login_required
+def exam_page(request, exam_id):
+    try:
+        exam = Exam.objects.get(pk=exam_id)
+        questions = ExamQuestion.objects.filter(exam=exam)
+    except Exam.DoesNotExist:
+        return redirect('exam_list')
+    
+    context = {
+        'student':is_student(request.user),
+        'teacher':is_teacher(request.user),
+        'exam': exam, 'questions': questions,
+    }
+    return render(request, 'exam/exam_page.html', context)
+
+@login_required
+def student_results(request):
+    user = request.user
+    results = ExamResult.objects.all()
+    context = {
+        'student':is_student(request.user),
+        'teacher':is_teacher(request.user),
+        'results': results
+    }
+    return render(request, 'exam/student_results.html', context)
+
+@login_required
+def calculate_results(request, exam_id):
+    if request.method == 'POST':
+        try:
+            exam = Exam.objects.get(pk=exam_id)
+            questions = ExamQuestion.objects.filter(exam=exam)
+        except Exam.DoesNotExist:
+            return redirect('exam_list')
+
+        degrees = 0
+        for question in questions:
+                answers = QuestionAnswer.objects.filter(question=question)
+                answer_id = request.POST.get(f'question_{question.id}')
+                for answer in answers:
+                    if (answer_id in answer.answer):
+                        degrees += 1
+        
+        print(request.user, degrees)
+
+        new_result = ExamResult.objects.create(student=request.user,exam=exam, degrees=degrees)
+        new_result.save()
+        return HttpResponseRedirect(reverse('student_results'))
+
+    return HttpResponseRedirect(reverse('exam_list'))

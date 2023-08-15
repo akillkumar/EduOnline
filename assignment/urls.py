@@ -11,4 +11,12 @@ urlpatterns = [
     path('delete_assignment/<int:assignment_id>/', views.delete_assignment, name='delete-assignment'),
 
     path('review_assignment/', views.review_assignment, name='review_assignment'),
+
+
+
+
+    path('exams/', views.exam_list, name='exam_list'),
+    path('exam/<int:exam_id>/', views.exam_page, name='exam_page'),
+    path('student-results/', views.student_results, name='student_results'),
+    path('calculate-results/<int:exam_id>/', views.calculate_results, name='calculate_results'),
 ]

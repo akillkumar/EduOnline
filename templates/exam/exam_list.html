@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block pageTitle %}Available Exams{% endblock pageTitle %}
+{% block currentPage %}Exams {{exam.exam_name }}{% endblock currentPage %}
+
+{% block content %}
+  <ul class="list-group-numbered" dir="rtl">
+    {% for exam in exams %}
+      <li class="list-group-item">
+        <a href="{% url 'exam_page' exam.id %}">{{ exam.exam_name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

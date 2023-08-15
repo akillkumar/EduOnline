@@ -43,6 +43,14 @@ class Comment(models.Model):
 
 
 
+class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_post')
+    post = models.TextField()
+    image = models.ImageField(upload_to='posts/', blank=True, null=True)
+    date = models.DateTimeField(default=timezone.now)
+
+
+
 class ContactUs(models.Model):
     firstName = models.CharField(max_length=50, default='')
     lastName = models.CharField(max_length=50, default='')

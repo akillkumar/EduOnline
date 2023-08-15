@@ -22,16 +22,31 @@
         <span>Assignments</span>
       </a>
     </li>
-    <!-- End Assignments Page Nav -->
+    <!-- End Assignments -->
     {% if student %}
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="{% url 'assignment_result' request.user %}">
-        <i class="bi bi-cloud-plus"></i>
+        <i class="fa-solid fa-arrow-up-9-1"></i>
         <span>Assignments result</span>
       </a>
     </li>
-    <!-- End Assignments Page Nav -->
+    <!-- End Assignments results -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'exam_list' %}">
+        <i class="fa-regular fa-clipboard"></i>
+        <span>Exams</span>
+      </a>
+    </li>
+    <!-- End Exams -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'student_results' %}">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>Exam results</span>
+      </a>
+    </li>
 
 
     <li class="nav-item">

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block pageTitle %}Your Exam Results{% endblock pageTitle %}
+{% block currentPage %}Exam / results {{exam.exam_name }}{% endblock currentPage %}
+
+
+{% block content %}
+
+  <table class="table table-bordered table-success text-center">
+    <thead  class="table-light">
+      <tr>
+        <th>Exam</th>
+        <th>Degrees</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in results %}
+      <tr>
+        {% if result.student.id == request.user.id %}
+        {% if result == None %}
+        <p class="text-danger">You don't have any results yet</p>
+        {% else %}
+        <td>{{ result.exam.exam_name }}</td>
+        <td class="list-group-item"> {{result.degrees}} </td>
+        {% endif %}
+        {% endif  %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
