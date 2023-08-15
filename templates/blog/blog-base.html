@@ -1,67 +1,52 @@
-{% load static%}
+{% load static %}
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{% static 'img/EduOnline.png' %}">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap"
+    rel="stylesheet">
 
-    <link href="{% static 'boxicons/css/boxicons.min.css' %}" rel="stylesheet" />
-    {% block style %}
-    {% endblock style %}
-    <link rel="stylesheet" href="{% static 'css\swiper-bundle.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'landing/css/about.css' %}">
-    <link rel="stylesheet" href="{% static 'landing/css/contact.css' %}">
-    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+    <title>EduOnline {% block title %} {% endblock title %}</title>
+
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
-    
-    <title>Edu-online</title>
+    <link href="{% static 'bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet" />
 
-</head>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'landing/css/bootstrap_4.5.2.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'landing/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
 
 <body>
-    <div class="overley"></div>
-{% include 'blog/blog-header.html' %}
+    {% include 'blog/blog-header.html' %}
+    {% block content %}
+    {% endblock content %}
 
-{% block content %}
-{% endblock content %}
-{% include 'blog/blog-footer.html' %}
-
-
-    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-    <script src="{% static 'landing/js/main.js' %}"></script>
+    {% include 'blog/blog-footer.html' %}
 
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            autoplay: {
-                delay: 5500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            // when window width is >= 800px
-            breakpoints: {
-                800: {
-                    slidesPerView: 2,
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbar = document.querySelector(".navbar");
+            const scrollThreshold = 200; // Adjust this value as needed
+
+            window.addEventListener("scroll", function () {
+                if (window.scrollY >= scrollThreshold) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
                 }
-            }
+            });
         });
+
     </script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'landing/js/bootstrap_4.5.2_js_bootstrap.min.js' %}"></script>
 </body>
 
 </html>

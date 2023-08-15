@@ -92,7 +92,10 @@ def teacher_review_assignment(request, assignmentId):
 
 def results(request, user):
     student = User.objects.get(username=user)
-    assign = StudentAssignment.objects.get(student=student)
+    try:
+        assign = StudentAssignment.objects.get(student=student)
+    except:
+        assign = None
     result = TeacherReview.objects.filter(student_assignment=assign)
     context = {
         'result':result,

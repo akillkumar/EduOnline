@@ -19,7 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-LOGIN_REDIRECT_URL='after-login'
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-^swj&4vqpy#pa4)e^62-bv(!h*6o(trmb9bu4k%wnd)olp%e8_'
@@ -38,9 +39,10 @@ CKEDITOR_CONFIGS = {
     },
 }
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Application definition
-
 INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     'django.contrib.admin',
@@ -49,7 +51,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "bootstrap5",
     'ckeditor',
+    'crispy_forms',
+    'crispy_bootstrap5',
     # Edu online apps
     'accounts.apps.AccountsConfig',
     'quiz.apps.QuizConfig',

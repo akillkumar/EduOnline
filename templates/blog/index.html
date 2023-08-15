@@ -1,118 +1,108 @@
 {% extends 'blog/blog-base.html' %}
 {% load static %}
+
+{% block title %} - Home {% endblock title %}
+
+
 {% block content %}
-<style>
-    .course_image img {
-        height: 200px;
-    }
-</style>
-<main>
-    <div class="container main_container">
-        <div class="header_left">
+<header class="jumbotron  text-center ">
+    <div class="container mb-5 ">
+        <h4 class="display-4">EduOnline<br>Gateway to Discovery and Learning</h4>
+    </div>
+    {% if not request.user.is_authenticated %}
+        <a href="{% url 'register' %}" class="btn btn-success">Join</a>
+        <a href="{% url 'login' %}" class="btn btn-outline-light">Login</a>
+    {% endif %}
+</header>
 
-            {% if request.user.is_authenticated %}
-                <h1>Hello, {{request.user.first_name|capfirst}}</h1>
-                <div style="margin-top:10px;" class="btn btn-primary">
-                    <i class="fa-solid fa-user" style="margin-right: 10px;"></i>
-                    <a href="{% url 'profile' request.user %}">My profile</a>
+<section class="container mt-5">
+    <div class="content">
+        <div class="title">
+            <h4>Courses</h4>
+        </div>
+
+        <div class="courses d-flex flex-wrap justify-content-around">
+            {% for course in courses %}
+            <div class="course">
+                <img src="{{ course.image.url }}" alt="">
+                <div>
+                    <strong>{{course.course_name}}</strong>
                 </div>
-                {% else %}
-                <h1>Hello, There</h1>
-                <p>EduOnline offers you with variety of courses which helps you in your skill development and makes you
-                    confident for the job. Enroll and join-us.</p>
-                <a href="{% url 'register' %}" class="btn btn-primary">Join us</a>
-                <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
-                {% endif %}
-        </div>
-        <div class="main_right">
-            <div class="main_right-image">
-                <img src="{% static 'landing/images/home.png' %}" alt="header-image">
             </div>
+            {% endfor %}
+
+
         </div>
     </div>
-</main>
-
-<section class="courses" id='courses'>
-    <h2>Popular Courses</h2>
-    <div class="container courses_container">
-        {% for course in courses%}
-        <article class="course">
-
-            <div class="course_image">
-                <img src="{{ course.image.url }}" alt="{{ course.course_name }}">
-            </div>
-            <div class="course_info">
-                <h4>{{ course.course_name }}</h4>
-                <p>{{ course.description|truncatewords:10 }}</p>
-                <a href="{% url 'courseDetails' course.course_name %}" class="btn btn-primary">Learn More</a>
-            </div>
-        </article>
-        {% endfor %}
-    </div>
-</section>
 
 
 
-
-<style>
-    .feedbacks{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-
-    .feedbacks .feed{
-        width: 300px;
-        height: 300px;
-        margin-top: 6rem ;
-        padding: 10px 20px;
-        border-radius: 15px;
-        position: relative;
-        background-color: #49694A;
-    }
-
-    .feedbacks .feed img{
-        position: absolute;
-        right: 0;
-        left: 0;
-        top: -3rem;
-        width: 6rem;
-        height: 6rem;
-        border-radius: 50%;
-        overflow: hidden;
-        margin: 0 auto 1rem;
-        border: 5px solid #49694A;
-    }
-
-    .feedbacks .feed .content{
-        margin-top: 50px;
-    }
-    .feedbacks .feed .content i{
-        color: gold;
-    }
-</style>
-<section class="container">
-    <h2>Feedback</h2>
-    <div class="feedbacks">
-        {% for feedback in feedbacks %}
-        <div class="feed">
-            <img src="{{ feedback.user.picture.url }}" alt="">
-            <div class="content">
-
-                <h3>{{feedback.user|capfirst}}</h3>
-                <span>Rating: </span>
-                {% for count in feedback.course_rate %}
-                <i class="fas fa-star" ></i>
-                {% endfor %}
-                <br>
-                <span>Course: <strong>{{feedback.course}}</strong> </span>
-                <hr>
-                <p>{{feedback.content|truncatewords:30}}</p>
-            </div>
+    <div class="content">
+        <div class="title">
+            <h4>Recently Articles</h4>
         </div>
-        {% endfor %}
+
+        <div class="row">
+            {% for article in articles %}
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <img class="card-img-top card-image" src="{{ article.image.url }}" alt="Blog Post Image">
+                    <div class="card-body">
+                        <h2 class="card-title">{{article.title}}</h2>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="title">
+            <h4>Random Books</h4>
+        </div>
+
+        <div class="row">
+            {% for book in books %}
+            <div class="col-lg-4">
+                <div class="card mb-4" aria-hidden="true">
+                    <img class="card-img-top card-image" src="{{book.image.url}}" alt="...">
+                    <div class="card-body">
+
+                        <h5 class="card-title rounded placeholder-glow">
+                            {{book.name}}
+                        </h5>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="title">
+            <h4>Feedbacks</h4>
+        </div>
+
+        <div class="row ">
+            {% for feedback in feedbacks %}
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial">
+                    {% for user in profile %}
+                        {% if feedback.user.id == user.username.id %}
+                            <img src="{{ user.picture.url }}" alt="Avatar" class="avatar">
+                        {% endif %}
+                            {% endfor %}
+                    <p class="quote">{{ feedback.content}}</p>
+                    <p class="author"> {{feedback.user}} </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
+
 {% endblock content %}

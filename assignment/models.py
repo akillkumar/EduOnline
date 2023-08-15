@@ -1,10 +1,12 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+from course.models import Course
 class Assignment(models.Model):
     title = models.CharField(max_length=100)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     description = models.TextField()
+    file = models.FileField(upload_to='assignments/%d')
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -1,45 +1,36 @@
 {% extends 'blog/blog-base.html' %}
 {% load static %}
 
+{% block title %} - Courses {% endblock title %}
 
 
 {% block content %}
-<style>
-  .course_image img {
-    height: 200px;
-  }
 
-</style>
-{% for category, courses in courses_by_category.items %}
-<section class="container">
-  <h2>{{ category }}</h2>
-    <div class="courses_container">
-        {% for course in courses %}
-        <article class="course">
+<header class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-4">Learn More, Achieve More</h1>
+    <p class="lead"><span class="text-">EduOnline's</span> Courses, Your Step Forward.</p>
+  </div>
+</header>
 
-            <div class="course_image">
-                <img src="{{ course.image.url }}" alt="{{ course.course_name }}">
-            </div>
-          
-            <div class="course_info">
-                <h4>{{ course.course_name }}</h4>
-                <span>Course rate</span><br>
-                {% for feedback in feedbacks %}
-                {% if course.id == feedback.course.id %}
-                  {% for counter in feedback.course_rate %}
-                    <i class="fas fa-star"></i>
-                  {% endfor %}
-                {% endif %}
-              {% endfor %}
-                <p>{{ course.description|truncatewords:5 }}</p>
-                <a href="{% url 'courseDetails' course.course_name %}" class="btn btn-primary">Learn More</a>
-            </div>
-        </article>
-        {% endfor %}
+
+<section class="container mt-5">
+  <div class="row">
+    {% for course in courses %}
+    <div class="col-lg-4  col-md-6 ">
+      <div class="course-card">
+        <div class="course-img">
+          <img src="{{course.image.url}}" alt="html">
+        </div>
+        <div class="course-description">
+          <h2> {{course.course_name}} </h2>
+          <p> {{course.description|truncatewords:7}} </p>
+          <a href="{% url 'courseDetails' course.course_name %}" class="btn btn-outline-success">Course Details</a>
+        </div>
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </section>
-{% endfor %}
-
-
 
 {% endblock content %}

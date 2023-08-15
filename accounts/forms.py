@@ -7,13 +7,18 @@ class LoginForm(forms.Form):
     password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 
 
-class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class RegisterForm(UserCreationForm):
+    first_name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    email = forms.EmailField()
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
-
+        fields = ["username", "first_name","last_name", "email", "password1", "password2"]
 
 class ProfileForm(forms.ModelForm):
     class Meta:

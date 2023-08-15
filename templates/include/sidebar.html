@@ -48,15 +48,6 @@
       </a>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="{% url 'available_quizzes' %}">
-        <i class="fa-solid fa-paperclip"></i>
-        <span>Quizzes</span>
-      </a>
-    </li>
-    <!-- End Assignments Page Nav -->
-
-
     {% elif teacher or request.user.is_staff %}
     <li class="nav-item">
       <a class="nav-link collapsed" href="{% url 'add-assignment' %}">

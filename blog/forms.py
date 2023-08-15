@@ -47,3 +47,9 @@ class ContactUsForm(forms.ModelForm):
             'required': True,
         }),
     }
+
+
+class CommentsForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment']

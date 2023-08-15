@@ -1,6 +1,7 @@
 {% extends 'blog/blog-base.html' %}
 {% load static %}
 {% load widget_tweaks %}
+{% load crispy_forms_tags %}
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
@@ -9,35 +10,23 @@
 
 {% block content %}
 
-<style>
-  .login-container {
-    width: 70%;
-    margin: 100px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    background-color: #ffffff5e;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-</style>
+<header class="jumbotron  text-center ">
+  <div class="container mb-5 ">
+      <h4 class="display-4">Login</h4>
+  </div>
+</header>
 
-
-<div class="container login-container">
-  <h2 class="mb-4 text-center">Login</h2>
+<section class="container mb-5">
   <form method="post">
     {% csrf_token %}
-    <div class="mb-3">
-      <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
-      {{ form.username|attr:"placeholder:Username" }}
-    </div>
-    <div class="mb-3">
-      <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
-      {{ form.password|attr:"placeholder:Password" }}
-    </div>
-    <div class="d-flex justify-content-center align-items-center w-100">
-    <button type="submit" class="btn btn-primary">Login</button>
-    </div>
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success w-25 me-5">Login</button> 
+    <a class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="{% url 'register' %}">
+      I don't have an account
+      <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+    </a>
+
   </form>
-</div>
+</section>
 
 {% endblock content %}

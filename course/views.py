@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import CourseForm, CourseEditForm, UploadForm
 from accounts.models import FeedBack
 from accounts.views import is_teacher, is_student
+from quiz.models import *
+
 @login_required
 def myCourses(request):
     #profile = Profile.objects.get(username=request.user)
@@ -21,16 +23,9 @@ def myCourses(request):
 
 def courses(request):
     feedbacks = FeedBack.objects.all()
-    categories = Course.objects.values_list('field', flat=True).distinct()
-    courses_by_category = {}
-
-    for category in categories:
-        courses_by_category[category] = Course.objects.filter(field=category)
-
     courses = Course.objects.all()
     context = {
         'feedbacks':feedbacks,
-        'courses_by_category': courses_by_category,
         'teacher':is_teacher(request.user),
         'student':is_student(request.user),
         "courses":courses,
@@ -88,6 +83,11 @@ def course_page(request, course_name):
 def watchCourse(request, courseName, videoId):
     course = Course.objects.get(course_name=courseName)
     videos = course.videos.all()
+    try:
+        quiz = Quiz.objects.get(course=course)
+    except:
+        quiz = 'No quizzes available to this course'
+
     if not videos:
         return  HttpResponse('No videos')
     current_video = get_object_or_404(CourseVideos, id=videoId, course=course)
@@ -99,7 +99,7 @@ def watchCourse(request, courseName, videoId):
     next_video_id = video_ids[current_index + 1] if current_index < len(video_ids) - 1 else None
 
     context = {
-        #'profile':profile,
+        'quiz':quiz,
         'teacher':is_teacher(request.user),
         'student':is_student(request.user),
         'course': course,
@@ -164,7 +164,7 @@ def upload_videos(request, course_id ):
 import os
 def create_course_videos_from_file(request, course_name):
 
-    file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'c#.txt')
+    file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sql.txt')
 
     with open(file_path, 'r') as file:
         lines = file.readlines()

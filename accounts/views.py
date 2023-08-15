@@ -10,32 +10,30 @@ from .models import Profile
 
 
 def error_404(request, exception):
-    
-    # we add the path to the 404.html file
-    # here. The name of our HTML file is 404.html
     return render(request, '404.html')
 
 
 
 
 def registration_view(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
+            user = form.save()
 
-            user = User.objects.create_user(username=username, email=email, password=password)
-            user.save()
-
+            # Assign the user to the 'STUDENT' group
             my_student_group = Group.objects.get_or_create(name='STUDENT')[0]
             user.groups.add(my_student_group)
 
-            # Redirect to login page after successful registration
-            return redirect('login')  
+            # Log in the user
+            login(request, user)
+
+            # Redirect to your desired URL
+            return redirect('home')  
     else:
-        form = RegistrationForm()
+        form = RegisterForm()
 
     return render(request, 'account/registration.html', {'form': form})
 

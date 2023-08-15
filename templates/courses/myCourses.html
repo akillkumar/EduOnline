@@ -18,18 +18,17 @@
     {% endif %}
       <div class="row">
         {% for enrollment in myCourses %}
-        <div class="col-4">
-            <div class="card">
-              <img class="card-img-top" src="{{enrollment.course.image.url}}" alt="">
-              <div class="card-body">
-                <h5 class="card-title w-100">{{ enrollment.course.course_name }}</h5>
-                  <p style="max-height: 30px; min-height:30px;" class="card-text h-10">{{ enrollment.course.description|truncatewords:8 }}</p>
-                  <a class="btn btn-success w-100 mt-3" href="{% url 'course_page' course_name=enrollment.course %}">
-                    Watch Now
-                  </a>
-              </div>
+        <div class="col-lg-4  col-md-6 ">
+          <div class="course-card">
+            <div class="course-img">
+              <img src="{{enrollment.course.image.url}}" alt="html">
+            </div>
+            <div class="course-description">
+              <h2> {{enrollment.course.course_name}} </h2>
+              <a href="{% url 'course_page' enrollment.course.course_name %}" class="btn btn-outline-success">Course Page</a>
             </div>
           </div>
+        </div>
           {% endfor %}
         </div>
   </section>

@@ -3,6 +3,7 @@ from .models import *
 
 
 admin.site.register(Book)
+admin.site.register(Article)
 
 
 @admin.register(ContactUs)

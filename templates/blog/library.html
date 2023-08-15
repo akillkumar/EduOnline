@@ -4,32 +4,28 @@
 {% block title %} - Library {% endblock title %}
 
 {% block content %}
+<header class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">Discover, Imagine, Learn</h1>
+        <p class="lead"><span class="text-warning">EduOnline's</span> Library - Your Gateway to Knowledge and
+            Imagination.</p>
+    </div>
+</header>
 
-<style>
-  .course_image img {
-      height: 200px;
-      align-items: center;
-  }
 
-  .card-img-top {
-      object-fit: cover;
-      height: 100%; 
-  }
-</style>
-<section class="container">
-    <div class="courses_container">
+<section class="container mt-5">
+    <div class="row">
         {% for book in books %}
-        <article class="course">
-
-            <div class="course_image">
-                <img src="{{ book.image.url }}" alt="{{ course.course_name }}">
+        <div class="col-lg-4 col-md-6">
+            <div class="card mb-4">
+                <img class="card-img-top card-image" src="{{ book.image.url }}" alt="Blog Post Image">
+                <div class="card-body">
+                    <h2 class="card-title"> {{book.name}} </h2>
+                    <p class="card-text"> {{book.description|truncatewords:6}} </p>
+                    <a href="{% url 'book' book.id %}" class="btn btn-outline-success">Read Book</a>
+                </div>
             </div>
-            <div class="course_info">
-                <h4>{{ book.name }}</h4>
-                <p>{{ book.description|truncatewords:10 }}</p>
-                <a href="{% url 'book' book.id %}" class="btn btn-primary">Learn More</a>
-            </div>
-        </article>
+        </div>
         {% endfor %}
     </div>
 </section>

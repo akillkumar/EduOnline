@@ -1,0 +1,96 @@
+# Create the quiz
+quiz_joomla = Quiz.objects.create(course=your_joomla_course_instance, quiz_name="Joomla Quiz")
+
+# Create the first question
+question1_joomla = Question.objects.create(quiz=quiz_joomla, content="What is Joomla?")
+
+# Create options for the first question
+option1_q1_joomla = Option.objects.create(question=question1_joomla, content="A programming language", is_correct=False)
+option2_q1_joomla = Option.objects.create(question=question1_joomla, content="A content management system", is_correct=True)
+option3_q1_joomla = Option.objects.create(question=question1_joomla, content="A web hosting service", is_correct=False)
+option4_q1_joomla = Option.objects.create(question=question1_joomla, content="An operating system", is_correct=False)
+
+# Create the second question
+question2_joomla = Question.objects.create(quiz=quiz_joomla, content="Which programming language is Joomla primarily built upon?")
+
+# Create options for the second question
+option1_q2_joomla = Option.objects.create(question=question2_joomla, content="Python", is_correct=False)
+option2_q2_joomla = Option.objects.create(question=question2_joomla, content="PHP", is_correct=True)
+option3_q2_joomla = Option.objects.create(question=question2_joomla, content="Java", is_correct=False)
+option4_q2_joomla = Option.objects.create(question=question2_joomla, content="C#", is_correct=False)
+
+# Create the third question
+question3_joomla = Question.objects.create(quiz=quiz_joomla, content="What is the purpose of a Joomla template?")
+
+# Create options for the third question
+option1_q3_joomla = Option.objects.create(question=question3_joomla, content="To manage databases", is_correct=False)
+option2_q3_joomla = Option.objects.create(question=question3_joomla, content="To define the site's visual layout", is_correct=True)
+option3_q3_joomla = Option.objects.create(question=question3_joomla, content="To create dynamic content", is_correct=False)
+option4_q3_joomla = Option.objects.create(question=question3_joomla, content="To write server-side code", is_correct=False)
+
+# Create the fourth question
+question4_joomla = Question.objects.create(quiz=quiz_joomla, content="What is a Joomla extension?")
+
+# Create options for the fourth question
+option1_q4_joomla = Option.objects.create(question=question4_joomla, content="A type of web server", is_correct=False)
+option2_q4_joomla = Option.objects.create(question=question4_joomla, content="A user authentication system", is_correct=False)
+option3_q4_joomla = Option.objects.create(question=question4_joomla, content="A modular piece of Joomla functionality", is_correct=True)
+option4_q4_joomla = Option.objects.create(question=question4_joomla, content="A database management tool", is_correct=False)
+
+# Create the fifth question
+question5_joomla = Question.objects.create(quiz=quiz_joomla, content="What is the Joomla administrator interface used for?")
+
+# Create options for the fifth question
+option1_q5_joomla = Option.objects.create(question=question5_joomla, content="Editing content on the frontend", is_correct=False)
+option2_q5_joomla = Option.objects.create(question=question5_joomla, content="Designing templates", is_correct=False)
+option3_q5_joomla = Option.objects.create(question=question5_joomla, content="Managing site configuration and content", is_correct=True)
+option4_q5_joomla = Option.objects.create(question=question5_joomla, content="Developing extensions", is_correct=False)
+
+# Create the sixth question
+question6_joomla = Question.objects.create(quiz=quiz_joomla, content="What is a Joomla module?")
+
+# Create options for the sixth question
+option1_q6_joomla = Option.objects.create(question=question6_joomla, content="A user role", is_correct=False)
+option2_q6_joomla = Option.objects.create(question=question6_joomla, content="A database table", is_correct=False)
+option3_q6_joomla = Option.objects.create(question=question6_joomla, content="A component", is_correct=False)
+option4_q6_joomla = Option.objects.create(question=question6_joomla, content="A lightweight, often display-only extension", is_correct=True)
+
+# Create the seventh question
+question7_joomla = Question.objects.create(quiz=quiz_joomla, content="What is a Joomla component?")
+
+# Create options for the seventh question
+option1_q7_joomla = Option.objects.create(question=question7_joomla, content="A code editor", is_correct=False)
+option2_q7_joomla = Option.objects.create(question=question7_joomla, content="A database query", is_correct=False)
+option3_q7_joomla = Option.objects.create(question=question7_joomla, content="A self-contained functional unit with its own interface", is_correct=True)
+option4_q7_joomla = Option.objects.create(question=question7_joomla, content="A template snippet", is_correct=False)
+
+# Create the eighth question
+question8_joomla = Question.objects.create(quiz=quiz_joomla, content="What is the purpose of the Joomla menu system?")
+
+# Create options for the eighth question
+option1_q8_joomla = Option.objects.create(question=question8_joomla, content="To display ads on the website", is_correct=False)
+option2_q8_joomla = Option.objects.create(question=question8_joomla, content="To create a sitemap for search engines", is_correct=False)
+option3_q8_joomla = Option.objects.create(question=question8_joomla, content="To navigate between different sections of the site", is_correct=True)
+option4_q8_joomla = Option.objects.create(question=question8_joomla, content="To manage user authentication", is_correct=False)
+
+# Create the ninth question
+question9_joomla = Question.objects.create(quiz=quiz_joomla, content="What is the purpose of the Joomla Global Configuration?")
+
+# Create options for the ninth question
+option1_q9_joomla = Option.objects.create(question=question9_joomla, content="To manage user accounts", is_correct=False)
+option2_q9_joomla = Option.objects.create(question=question9_joomla, content="To define the site's visual layout", is_correct=False)
+option3_q9_joomla = Option.objects.create(question=question9_joomla, content="To configure site-wide settings and parameters", is_correct=True)
+option4_q9_joomla = Option.objects.create(question=question9_joomla, content="To create database tables", is_correct=False)
+
+# Create the tenth question
+question10_joomla = Question.objects.create(quiz=quiz_joomla, content="What is the purpose of Joomla ACL (Access Control List)?")
+
+# Create options for the tenth question
+option1_q10_joomla = Option.objects.create(question=question10_joomla, content="To display user avatars", is_correct=False)
+option2_q10_joomla = Option.objects.create(question=question10_joomla, content="To manage site backups", is_correct=False)
+# Create options for the tenth question (continued)
+option3_q10_joomla = Option.objects.create(question=question10_joomla, content="To control user access and permissions to different site resources", is_correct=True)
+option4_q10_joomla = Option.objects.create(question=question10_joomla, content="To handle search engine optimization (SEO)", is_correct=False)
+
+# ... continue creating more questions and options as needed
+

@@ -7,14 +7,26 @@
 {% block content %}
   <form method="post">
       {% csrf_token %}
+      <div class="form-group mb-3">
+        <label for="{{ form.title.id_for_label }}">Course:</label>
+        {{ form.course|add_class:'form-select' }}  <!-- Add 'form-control' class for Bootstrap styling -->
+    </div>
+
       <div class="form-group">
-          <label for="{{ form.title.id_for_label }}">Title:</label>
+          <label for="{{ form.title.id_for_label }}">Assignment Title:</label>
           {{ form.title|add_class:'form-control' }}  <!-- Add 'form-control' class for Bootstrap styling -->
       </div>
       <div class="form-group mt-3">
           <label for="{{ form.description.id_for_label }}">Description:</label>
           {{ form.description|attr:"rows:4"|add_class:'form-control' }}  <!-- Set textarea rows and add 'form-control' class -->
       </div>
+
+      <div class="form-group mt-3">
+        <label for="{{ form.description.id_for_label }}">Assignment File:</label>
+        {{ form.file|add_class:'form-control' }}
+    </div>
+
+
       <div class="mt-5">
         <button type="submit" class="btn btn-success">Save Assignment</button>
       </div>

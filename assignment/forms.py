@@ -4,7 +4,7 @@ from .models import Assignment, StudentAssignment, TeacherReview
 class AssignmentForm(forms.ModelForm):
     class Meta:
         model = Assignment
-        fields = ['title', 'description']
+        fields = ['course', 'title', 'description', 'file']
 
 class StudentAssignmentForm(forms.ModelForm):
     class Meta:

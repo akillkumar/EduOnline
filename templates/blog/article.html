@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
+
+{% block title %} - Blog {% endblock title %}
 
 {% block pageTitle %} Article {% endblock pageTitle %}
 {% block currentPage %} article-{{article.title|truncatewords:4}} {% endblock currentPage %}
@@ -15,16 +18,39 @@
                 <h1 class="card-title">{{ article.title }}</h1>
                 <span class="card-date"><strong>published on:</strong><br> {{ article.date }}</span>
             </div>
-            <h6 class="d-block"><strong>created by:</strong> {{article.author.first_name|capfirst}} {{article.author.last_name|capfirst}}</h6>
+            <h6 class="d-block"><strong>created by:</strong> {{article.author.first_name|capfirst}}
+                {{article.author.last_name|capfirst}}</h6>
             <hr>
             {% if article.image %}
-                <img src="{{ article.image.url }}" class="rounded img-fluid" alt="Article Image">
+            <img src="{{ article.image.url }}" class="rounded img-fluid" alt="Article Image">
             {% else %}
-                <img src="" alt="{{ article.title }}">
+            <img src="" alt="{{ article.title }}">
             {% endif %}
-            
+
             <p class="card-text mt-5">{{ article.content|safe }}</p>
         </div>
+
+        <div class="row">
+            <ul>
+                <hr>
+                {% for comment in comments %}
+                <li><strong>{{comment.user.first_name|title}} {{comment.user.last_name|title}}</strong><br>
+                    <p><small>Comment:</small> {{comment.comment}}</p>
+                </li>
+                <hr>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="Comment" class="form-label">Leave comment</label>
+                {% render_field comment_form.comment class="form-control" %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Comment</button>
+        </form>
     </div>
 </div>
 

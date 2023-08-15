@@ -20,7 +20,7 @@ class Book(models.Model):
     
     name = models.CharField(max_length=40)
     link = models.URLField(default='https://')
-    description = models.CharField(max_length=100)
+    description = models.TextField()
     field = models.CharField(max_length=50, choices=field_choices)
     image = models.ImageField(upload_to='library/book/', blank=True, null=True)
 
@@ -31,6 +31,16 @@ class Article(models.Model):
     content = RichTextField()
     date = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='blog/thumbnails/')
+
+    def __str__(self):
+        return f"{self.id}: {self.author} - {self.title}"
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='article')
+    comment = models.TextField()
+
+
 
 
 class ContactUs(models.Model):

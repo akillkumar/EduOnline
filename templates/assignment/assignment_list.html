@@ -5,14 +5,13 @@
 {% block currentPage %} assignments {% endblock currentPage %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2>Assignment List</h2>
+<div class="row">
     <table class="table table-bordered table-hover">
         <thead class="thead-light">
             <tr>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Date</th>
+                <th>Assignment</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,7 +20,11 @@
             <tr>
                 <td>{{ assignment.title }}</td>
                 <td>{{ assignment.description }}</td>
-                <td>{{ assignment.date }}</td>
+                {% if assignment.file %}
+                    <td><a href="{{ assignment.file.url }}" target="_blank" rel="noopener noreferrer">View assignment</a></td>
+                {% else %}
+                <td>Not has assignment document yet</td>
+                {% endif %}
                 <td>
                     {% if request.user.is_authenticated %}
                     {% if student %}
