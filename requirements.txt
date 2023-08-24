@@ -14,3 +14,4 @@ soupsieve==2.4.1
 sqlparse==0.4.4
 tzdata==2023.3
 whitenoise==6.5.0
+pysqlite3 --global-option=--version=3.8.3
